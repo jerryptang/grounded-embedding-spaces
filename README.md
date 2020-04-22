@@ -4,27 +4,29 @@ This repository contains code for creating visually grounded word embedding spac
 
 ## Usage
 
-1. Extract visual embeddings from images. The images corresponding to each visual word should be stored in a subdirectory of `imgs/`. If the subdirectory names are different from the words (e.g. if subdirectory names are WordNet IDs), a mapping between each word and its image subdirectory name should be provided in `data/word_dir_mapping.txt`. 
+1. Download [data](https://utexas.app.box.com/s/2anuzjeatu7o3uvpilkeqgff7jgd59o4) and extract content into new `data/` directory. 
+
+2. Extract visual embeddings from images (if using custom images). The images corresponding to each visual word should be stored in a subdirectory of `imgs/`. If the subdirectory names are different from the words (e.g. if subdirectory names are WordNet IDs), a mapping between each word and its image subdirectory name should be provided in `data/word_dir_mapping.txt`. 
 
 ```bash
 python3 create_visual_embeddings.py data/visual_embs.npz -layer fc1 -mapping data/word_dir_mapping.txt
 ```
 
-The visual words and corresponding WordNet IDs used in Tang et al. are provided in `data/word_dir_mapping.txt`. The visual embeddings (extracted from layer fc1) used in Tang et al. are provided in `data/visual_embs.npz`. Unfortunately, due to copyright restrictions we are not able to share the original images used to create these embeddings.
+Alternatively, the visual words and corresponding WordNet IDs used in Tang et al. are provided in `data/word_dir_mapping.txt`, and the visual embeddings (extracted from layer fc1) used in Tang et al. are provided in `data/visual_embs.npz`. Unfortunately, due to copyright restrictions we are not able to share the original images used to create these embeddings.
 
-2. Create the visually grounded embedding space. Given the visual embeddings of visual words, a sensory propagation method creates visually grounded embeddings of nonvisual  words. The amodal and grounded embedding spaces are represented by their covariance matrices and saved to the specified output file. 
+3. Create the visually grounded embedding space. Given the visual embeddings of visual words, a sensory propagation method creates visually grounded embeddings of nonvisual  words. The amodal and grounded embedding spaces are represented by their covariance matrices and saved to the specified output file. 
 
 ```bash
 python3 create_semantic_priors.py data/visual_embs.npz semantic_priors.npz
 ```
 
-3. Create concreteness scores for weighting amodal and grounded embeddings. The [Brysbaert Concreteness Ratings](https://www.ncbi.nlm.nih.gov/pubmed/24142837) are provided in `data/conc_ratings.npz`. This function creates concreteness scores for each word in the embedding space by processing concreteness ratings and interpolating scores for missing words. 
+4. Create concreteness scores for weighting amodal and grounded embeddings. The [Brysbaert Concreteness Ratings](https://www.ncbi.nlm.nih.gov/pubmed/24142837) are provided in `data/conc_ratings.npz`. This function creates concreteness scores for each word in the embedding space by processing concreteness ratings and interpolating scores for missing words. 
 
 ```bash
 python3 create_concreteness_scores.py semantic_priors.npz conc_scores.npy
 ```
 
-4. Use grounded embedding spectrum. The GroundedSpectrum class loads the saved semantic priors and concreteness scores. 
+5. Use grounded embedding spectrum. The GroundedSpectrum class loads the saved semantic priors and concreteness scores. 
 
 ```python
 In [1]: from GroundedSpectrum import GroundedSpectrum
