@@ -37,18 +37,13 @@ Out[3]:
 In [4]: gs.similarity('doctor', 'athlete', b = 10) # visually grounded similarity
 Out[4]:
 0.4563762578004484
-In [5]: gs.grounding_words('honor')[:10] # most strongly associated visual words under sensory propagation model
+In [5]: gs.grounding_words('idyllic')[:10] # most strongly associated visual words under the amodal embedding space
 Out[5]:
-[('memorial', 0.06103069404540094),
- ('soldier', 0.037841886270174624),
- ('uniform', 0.03660062783722907),
- ('cardinal', 0.03384936018858278),
- ('statue', 0.03382915745442363),
- ('candle', 0.030899885904507166),
- ('eagle', 0.03043478011620268),
- ('pilot', 0.029607891557204228),
- ('cathedral', 0.028945305232053853),
- ('heart', 0.028902362133141946)]
+[('gorges', 0.3111969206758748), 
+ ('beauty', 0.3065462045460804), 
+ ('garden', 0.2967788022308049), 
+ ('cottage', 0.2866977052313361), 
+ ('family', 0.26388145847297373)]
 In [6]: gs.sigma(0)
 Out[6]:
 array([[ 1.        ,  0.69081572,  0.3095305 , ..., -0.24495695,
