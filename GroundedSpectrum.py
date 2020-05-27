@@ -10,9 +10,11 @@ class GroundedSpectrum(object):
         self.conc_scores = np.load(conc_scores_path).clip(0.01, 0.99)
 
     def grounding_words(self, w):
-        """Identify the most visual words that are most strongly aassociated with w under the sensory propagation model."""
-        theta_w = self.theta[self.vocab_ids[w]]
-        return sorted(zip(self.visual_words, theta_w), key = lambda x : -x[1])
+        """Identify the visual words that are most strongly associated with w under the amodal space."""
+        story_visual_words = [x for x in self.visual_words if x in self.vocab]
+        visual_word_ids = [self.vocab_ids[x] for x in story_visual_words]
+        visual_similarities = self.sigma_A[self.vocab_ids[w]][visual_word_ids]
+        return sorted(zip(story_visual_words, visual_similarities), key = lambda x : -x[1])
 
     def sigma(self, b):
         """Interpolate between sigma_A and sigma_G.
