@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
     # load amodal embeddings for each vocab word
     print('loading amodal embeddings')
-    amodal_embs = np.load(config.DISTRIBUTIONAL_EMB_PATH)
+    amodal_embs = np.load(config.DISTRIBUTIONAL_EMBS_PATH)
     amodal_emb_dict = dict(zip(amodal_embs['sorted_vocab'], amodal_embs['embeddings'].T))
     A = np.array([amodal_emb_dict[x] for x in vocab]).T
     sigma_A = np.corrcoef(A.T)
