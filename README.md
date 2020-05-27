@@ -4,7 +4,7 @@ This repository contains code for creating visually grounded word embedding spac
 
 ## Usage
 
-1. Download [data](https://utexas.app.box.com/s/2anuzjeatu7o3uvpilkeqgff7jgd59o4) and extract content into new `data/` directory. 
+1. Download [data](https://utexas.box.com/shared/static/9s0kymmfpx5vc7lg8o2l47uxjim8bw2t.zip) and extract content into new `data/` directory. 
 
 2. Extract visual embeddings from images (if using custom images). The images corresponding to each visual word should be stored in a subdirectory of `imgs/`. If the subdirectory names are different from the words (e.g. if subdirectory names are WordNet IDs), a mapping between each word and its image subdirectory name should be provided in `data/word_dir_mapping.txt`. 
 
