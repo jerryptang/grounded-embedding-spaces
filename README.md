@@ -20,7 +20,7 @@ Alternatively, the visual words and corresponding WordNet IDs used in Tang et al
 python3 create_priors.py data/cnn_embs.npz semantic_priors.npz
 ```
 
-4. Create concreteness scores for weighting amodal and grounded embeddings. The [Brysbaert Concreteness Ratings](https://www.ncbi.nlm.nih.gov/pubmed/24142837) are provided in `data/conc_ratings.npz`. This function creates concreteness scores for each word in the embedding space by processing concreteness ratings and interpolating scores for missing words. 
+4. Create concreteness scores for weighting linguistic and visual embeddings. The [Brysbaert Concreteness Ratings](https://www.ncbi.nlm.nih.gov/pubmed/24142837) are provided in `data/conc_ratings.npz`. This function creates concreteness scores for each word in the embedding space by processing concreteness ratings and interpolating scores for missing words. 
 
 ```bash
 python3 create_concreteness_scores.py semantic_priors.npz priors.npy
