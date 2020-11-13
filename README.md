@@ -9,7 +9,7 @@ This repository contains code for creating semantic embedding spaces used in the
 2. Extract CNN embeddings from images (if using custom images). The images corresponding to each visual word should be stored in a subdirectory of `imgs/`. If the subdirectory names are different from the words (e.g. if subdirectory names are WordNet IDs), a mapping between each word and its image subdirectory name should be provided in `data/word_dir_mapping.txt`. 
 
 ```bash
-python3 create_visual_embeddings.py data/cnn_embs.npz -layer fc1 -mapping data/word_dir_mapping.txt
+python3 create_cnn_embeddings.py data/cnn_embs.npz -layer fc1 -mapping data/word_dir_mapping.txt
 ```
 
 Alternatively, the visual words and corresponding WordNet IDs used in Tang et al. are provided in `data/word_dir_mapping.txt`, and the CNN embeddings (extracted from layer fc1 of VGG16) used in Tang et al. are provided in `data/visual_embs.npz`. Unfortunately, due to copyright restrictions we are not able to share the original images used to create these embeddings.
