@@ -17,13 +17,13 @@ Alternatively, the visual words and corresponding WordNet IDs used in Tang et al
 3. Create the linguistic and visual embedding spaces. Given the CNN embeddings of visual words, a sensory propagation method creates visually embeddings of visual and nonvisual words. The linguistic and visual embedding spaces are represented by their covariance matrices and saved to the specified output file. 
 
 ```bash
-python3 create_priors.py data/cnn_embs.npz semantic_priors.npz
+python3 create_priors.py data/cnn_embs.npz priors.npz
 ```
 
 4. Create concreteness scores for weighting linguistic and visual embeddings. The [Brysbaert Concreteness Ratings](https://www.ncbi.nlm.nih.gov/pubmed/24142837) are provided in `data/conc_ratings.npz`. This function creates concreteness scores for each word in the embedding space by processing concreteness ratings and interpolating scores for missing words. 
 
 ```bash
-python3 create_concreteness_scores.py semantic_priors.npz priors.npy
+python3 create_concreteness_scores.py priors.npz conc_scores.npy
 ```
 
 5. Create semantic embedding spaces by combining the visual and linguistic embedding spaces. The SemanticSpace class loads the saved priors and concreteness scores. 
