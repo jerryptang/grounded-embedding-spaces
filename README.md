@@ -37,7 +37,7 @@ Out[3]:
 In [4]: ss.similarity('doctor', 'athlete', b = 10.0) # visual similarity
 Out[4]:
 0.4563762578004508
-In [5]: ss.sigma(0)
+In [5]: ss.sigma(0) # semantic similarities
 Out[5]:
 array([[ 1.        ,  0.69081572,  0.3095305 , ..., -0.24495695,
          0.24722239, -0.22175797],
