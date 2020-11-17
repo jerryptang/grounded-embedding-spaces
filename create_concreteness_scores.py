@@ -17,7 +17,7 @@ def interpolate_conc_scores(vocab, word2id, sigma_L, conc_ratings, top_nn = 15):
         else: w_score = 0
         # mean concreteness score of neighbors
         nn_correlations = similarity_scores(w, sigma_L, vocab, word2id)
-        nn_score = np.mean([conc_ratings[nn[0]] for nn in nn_correlations if nn[0] in conc_ratings][:top_nn])**2
+        nn_score = np.mean([conc_ratings[nn[0]]**2 for nn in nn_correlations if nn[0] in conc_ratings][:top_nn])
         scores[w] = max(w_score, nn_score)
     return np.array([scores[w] for w in vocab])
 
