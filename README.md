@@ -1,6 +1,6 @@
 # Semantic Embedding Spaces
 
-This repository contains code for creating semantic embedding spaces used in the paper "Cortical Representations of Concrete and Abstract Concepts in Natural Language Combine Visual and Linguistic Representations" by Jerry Tang, Amanda I. Lebel, and Alexander G. Huth.  
+This repository contains code for creating semantic embedding spaces used in the paper "Cortical Representations of Concrete and Abstract Concepts in Language Combine Visual and Linguistic Representations" by Jerry Tang, Amanda I. Lebel, and Alexander G. Huth.  
 
 ## Usage
 
@@ -14,7 +14,7 @@ python3 create_cnn_embeddings.py data/cnn_embs.npz -layer fc1 -mapping data/word
 
 Alternatively, the visual words and corresponding WordNet IDs used in Tang et al. are provided in `data/word_dir_mapping.txt`, and the CNN embeddings (extracted from layer fc1 of VGG16) used in Tang et al. are provided in `data/cnn_embs.npz`. Unfortunately, due to copyright restrictions we are not able to share the original images used to create these embeddings.
 
-3. Create the linguistic and visual embedding spaces. Given the CNN embeddings of visual words, a sensory propagation method creates visually embeddings of visual and nonvisual words. The linguistic and visual embedding spaces are represented by their covariance matrices and saved to the specified output file. 
+3. Create the linguistic and visual embedding spaces. Given the CNN embeddings of visual words, a sensory propagation method creates visual embeddings of visual and nonvisual words. The linguistic and visual embedding spaces are represented by their covariance matrices and saved to the specified output file. 
 
 ```bash
 python3 create_priors.py data/cnn_embs.npz priors.npz
