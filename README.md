@@ -1,6 +1,6 @@
 # Semantic Embedding Spaces
 
-This repository contains code for creating semantic embedding spaces used in the paper "Cortical Representations of Concrete and Abstract Concepts in Language Combine Visual and Linguistic Representations" by Jerry Tang, Amanda I. Lebel, and Alexander G. Huth.  
+This repository contains code for creating semantic embedding spaces that combine visual and linguistic information, used in the paper "Cortical Representations of Concrete and Abstract Concepts in Language Combine Visual and Linguistic Representations" by Jerry Tang, Amanda I. Lebel, and Alexander G. Huth.  
 
 ## Usage
 
